@@ -1,0 +1,78 @@
+/* Domino Tile Container */
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 8px;
+  width: 60px;
+  height: 120px;
+  margin: 10px;
+  background-color: #eee8c4;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.2s;
+  cursor: pointer; /* Change cursor to pointer */
+  position: relative;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+/* Hover Effect */
+.tile:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+/* Flipped Tile */
+.tile.flipped {
+  transform: rotateY(180deg); /* Flip the tile */
+}
+
+/* Half of the Domino Tile */
+.half {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  backface-visibility: hidden; /* Hide the backface during flip */
+}
+
+/* Top Half of the Domino Tile */
+.top-half {
+  border-bottom: 2px solid black;
+}
+
+/* Bottom Half of the Domino Tile */
+.bottom-half {
+  transform: rotateY(0deg); /* Reset transform for bottom half */
+}
+
+/* Dots Container */
+.dots-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  width: 50px;
+  height: 50px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Individual Dot */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Visible Dot */
+.dot.visible {
+  opacity: 1;
+}
